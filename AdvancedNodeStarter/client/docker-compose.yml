@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+    react-app:
+      image: react-app
+      stdin_open: true
+      ports:
+         - "3000:3000" 
+      networks: 
+         - my_net
+      depends_on:  
+         - api-server 
+    api-server:
+      image: api-server
+      ports:
+       - "5000:5000"
+      networks: 
+         - my_net
+networks:
+  my_net:
+    driver: bridge     
